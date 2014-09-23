@@ -13,3 +13,11 @@ Defaults to /etc/logstash/conf.d/logstash.conf on CentOS
 elasticsearch.yml
 --------
 Defaults to /etc/elasticsearch/elasticsearch.yml on CentOS
+
+demo-1.json
+--------
+Main Kibana dashboard
+
+search-1.json
+--------
+Generic event search dashboard
