@@ -1,5 +1,5 @@
 {
-  "title": "Search",
+  "title": "Demo 1",
   "services": {
     "query": {
       "list": {
@@ -11,10 +11,120 @@
           "pin": false,
           "type": "lucene",
           "enable": true
+        },
+        "1": {
+          "id": 1,
+          "color": "#EAB839",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "tcp"
+        },
+        "2": {
+          "id": 2,
+          "color": "#6ED0E0",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "udp"
+        },
+        "3": {
+          "id": 3,
+          "color": "#EF843C",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "icmp"
+        },
+        "4": {
+          "id": 4,
+          "color": "#E24D42",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "den*"
+        },
+        "5": {
+          "id": 5,
+          "color": "#1F78C1",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "permit"
+        },
+        "6": {
+          "id": 6,
+          "color": "#BA43A9",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "shun"
+        },
+        "7": {
+          "id": 7,
+          "color": "#705DA0",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "built"
+        },
+        "8": {
+          "id": 8,
+          "color": "#508642",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "teardown"
+        },
+        "9": {
+          "id": 9,
+          "color": "#CCA300",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "error*"
+        },
+        "10": {
+          "id": 10,
+          "color": "#447EBC",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "unknown*"
+        },
+        "11": {
+          "id": 11,
+          "color": "#C15C17",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "cplane*"
         }
       },
       "ids": [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
       ]
     },
     "filter": {
@@ -22,7 +132,7 @@
         "0": {
           "type": "time",
           "field": "@timestamp",
-          "from": "now-24h",
+          "from": "now-1h",
           "to": "now",
           "mandate": "must",
           "active": true,
@@ -55,7 +165,7 @@
           "value_field": null,
           "auto_int": true,
           "resolution": 100,
-          "interval": "10m",
+          "interval": "30s",
           "fill": 3,
           "linewidth": 3,
           "timezone": "browser",
@@ -73,10 +183,21 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
             ]
           },
-          "title": "Events over time",
+          "title": "Network Stats",
           "intervals": [
             "auto",
             "1s",
@@ -118,13 +239,413 @@
           "legend_counts": true,
           "zerofill": true,
           "derivative": false
+        },
+        {
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "bettermap",
+          "loadingEditor": false,
+          "field": "geoip.location",
+          "size": 1000,
+          "spyable": true,
+          "tooltip": "_id",
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              1,
+              2,
+              3
+            ]
+          },
+          "title": "Raw Network Activty"
+        },
+        {
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "bettermap",
+          "loadingEditor": false,
+          "field": "geoip.location",
+          "size": 1000,
+          "spyable": true,
+          "tooltip": "_id",
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              4,
+              6
+            ]
+          },
+          "title": "Threat Map"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "src_ip",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "bar",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Trending Source IP"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "dst_ip",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "bar",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Trending Destination IP"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "src_port",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "bar",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Trending Source Ports"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "dst_port",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "bar",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Trending Destination Ports"
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "histogram",
+          "loadingEditor": false,
+          "mode": "count",
+          "time_field": "@timestamp",
+          "value_field": null,
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_format": "none",
+          "grid": {
+            "max": null,
+            "min": 0
+          },
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              1,
+              2,
+              3
+            ]
+          },
+          "annotate": {
+            "enable": true,
+            "query": "*",
+            "size": 20,
+            "field": "_type",
+            "sort": [
+              "_score",
+              "desc"
+            ]
+          },
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "30s",
+          "intervals": [
+            "auto",
+            "1s",
+            "1m",
+            "5m",
+            "10m",
+            "30m",
+            "1h",
+            "3h",
+            "12h",
+            "1d",
+            "1w",
+            "1y"
+          ],
+          "lines": true,
+          "fill": 0,
+          "linewidth": 3,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": true,
+          "spyable": true,
+          "zoomlinks": true,
+          "options": true,
+          "legend": true,
+          "show_query": true,
+          "interactive": true,
+          "legend_counts": true,
+          "timezone": "browser",
+          "percentage": false,
+          "zerofill": true,
+          "derivative": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "title": "Protocol Flows"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "dst_country",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "above",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Trending Countries"
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "trends",
+          "loadingEditor": false,
+          "ago": "1h",
+          "arrangement": "vertical",
+          "reverse": true,
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              1,
+              2,
+              3
+            ]
+          },
+          "style": {
+            "font-size": "14pt"
+          },
+          "title": "Network Flow Trends"
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "trends",
+          "loadingEditor": false,
+          "ago": "1h",
+          "arrangement": "vertical",
+          "reverse": true,
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              4,
+              5,
+              6
+            ]
+          },
+          "style": {
+            "font-size": "14pt"
+          },
+          "title": "Firewall Activity Trend"
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "trends",
+          "loadingEditor": false,
+          "ago": "1h",
+          "arrangement": "vertical",
+          "reverse": true,
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              9,
+              10,
+              11
+            ]
+          },
+          "style": {
+            "font-size": "14pt"
+          },
+          "title": "Error Trends"
         }
       ],
       "notice": false
     },
     {
       "title": "Events",
-      "height": "350px",
+      "height": "200px",
       "editable": true,
       "collapse": false,
       "collapsable": true,
@@ -138,7 +659,7 @@
             "default"
           ],
           "type": "table",
-          "size": 100,
+          "size": 20,
           "pages": 5,
           "offset": 0,
           "sort": [
@@ -148,7 +669,7 @@
           "style": {
             "font-size": "9pt"
           },
-          "overflow": "min-height",
+          "overflow": "height",
           "fields": [],
           "localTime": true,
           "timeField": "@timestamp",
@@ -160,7 +681,18 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
             ]
           },
           "field_list": true,
@@ -186,14 +718,21 @@
   "pulldowns": [
     {
       "type": "query",
-      "collapse": false,
+      "collapse": true,
       "notice": false,
       "query": "*",
       "pinned": true,
       "history": [
-        "*",
-        "37.",
-        "mwdomain"
+        "cplane*",
+        "unknown*",
+        "error*",
+        "teardown",
+        "built",
+        "shun",
+        "permit",
+        "den*",
+        "icmp",
+        "udp"
       ],
       "remember": 10,
       "enable": true
@@ -254,5 +793,5 @@
     "load_local": true,
     "hide": false
   },
-  "refresh": false
+  "refresh": "30s"
 }
