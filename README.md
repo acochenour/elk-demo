@@ -5,5 +5,9 @@ Collection of ELK stack configuration elements for the 2014 MSU Security Confere
 
 Files
 ========
-logstash.conf -- Defaults to /etc/logstash/conf.d/logstash.conf on CentOS
-elasticsearch.yml -- Defaults to /etc/elasticsearch/elasticsearch.yml on CentOS
+--------
+logstash.conf
+Defaults to /etc/logstash/conf.d/logstash.conf on CentOS
+--------
+elasticsearch.yml
+Defaults to /etc/elasticsearch/elasticsearch.yml on CentOS
