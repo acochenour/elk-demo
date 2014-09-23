@@ -21,3 +21,7 @@ Main Kibana dashboard
 search-1.json
 --------
 Generic event search dashboard
+
+firewalls-grok
+--------
+Incremental updates to built-in grok patterns
