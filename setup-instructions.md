@@ -7,7 +7,9 @@ Download and install the Fedora EPEL Repo to gain access to necessary packages
 
 Recommend disabling IPV6 for testing and lab purposes:
 ```sudo vi /etc/sysctl```
+
 Add the following keys:
+
 ```net.ipv6.conf.all.disable_ipv6=1```
 ```net.ipv6.conf.default.disable_ipv6=1```
 
