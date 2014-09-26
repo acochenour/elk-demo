@@ -22,19 +22,19 @@ Configure IPTables
 ------------------
 
 Allow access to Kibana GUI
-```iptables -A INPUT -p tcp --dport 80 -j ACCEPT```
+``` iptables -A INPUT -p tcp --dport 80 -j ACCEPT ```
 Optional if you choose to access Kibana via SSL
-```iptables -A INPUT -p tcp --dport 443 -j ACCEPT```
+``` iptables -A INPUT -p tcp --dport 443 -j ACCEPT ```
 Allow client-side access to Elasticsearch
-```iptables -A INPUT -p tcp --dport 9200 -j ACCEPT```
+``` iptables -A INPUT -p tcp --dport 9200 -j ACCEPT ```
 Allow client-side access to Elasticsearch API
-```iptables -A INPUT -p tcp --dport 9300 -j ACCEPT```
+``` iptables -A INPUT -p tcp --dport 9300 -j ACCEPT ```
 
 
 OPTIONAL WITH A WARNING: If you don't use iptables or want to temporarily disable it:
 -------------------------------------------------------------------------------------
-```sudo /sbin/service iptables stop```
-```sudo /sbinchkconfig iptables off```
+``` sudo /sbin/service iptables stop ```
+``` sudo /sbinchkconfig iptables off ```
 
 
 SELinux
