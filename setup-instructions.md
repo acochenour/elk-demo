@@ -27,8 +27,8 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1```
 
 
 # OPTIONAL WITH A WARNING: If you don't use iptables or want to temporarily disable it:
-sudo /sbin/service iptables stop```
-sudo /sbinchkconfig iptables off```
+```sudo /sbin/service iptables stop```
+```sudo /sbinchkconfig iptables off```
 
 
 # Set SELinux to 'permissive' to allow correct operation of ELK stack; 
@@ -97,7 +97,7 @@ enabled=1```
 
 # Install a web server for brevity Nginx can be installed.
 # Apache and Nginx are interchangeable here
-````sudo yum install nginx -y```
+```sudo yum install nginx -y```
 
 
 # Force nginx to start automatically:
