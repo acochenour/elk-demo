@@ -45,12 +45,14 @@ sudo /sbinchkconfig iptables off```
 ```sudo vi /etc/yum.repos.d/elasticsearch.repo```
 
 # Add the following and save the file:
-```[elasticsearch-1.2]
+```
+[elasticsearch-1.2]
 name=Elasticsearch repository for 1.2.x packages
 baseurl=http://packages.elasticsearch.org/elasticsearch/1.2/centos
 gpgcheck=1
 gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
-enabled=1```
+enabled=1
+```
 
 
 # Install Elasticsearch:
@@ -66,7 +68,7 @@ enabled=1```
 
 
 # Install the Logstash repo for yum to use:
-````sudo vi /etc/yum.repos.d/logstash.repo```
+```sudo vi /etc/yum.repos.d/logstash.repo```
 
 
 # Add the following and save the file:
