@@ -3,15 +3,15 @@ Steps to configure ELK stack on a freash CentOS 6.5 64-bit host
 ---------------------------------------------------------------
 
 Download and install the Fedora EPEL Repo to gain access to necessary packages
-```sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm```
+``` sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm ```
 
 Recommend disabling IPV6 for testing and lab purposes:
-```sudo vi /etc/sysctl```
+``` sudo vi /etc/sysctl ```
 
 Add the following keys:
 
-```net.ipv6.conf.all.disable_ipv6=1```
-```net.ipv6.conf.default.disable_ipv6=1```
+``` net.ipv6.conf.all.disable_ipv6=1 ```
+``` net.ipv6.conf.default.disable_ipv6=1 ```
 
 
 Activate the sysctl IPV6 changes:
@@ -118,40 +118,40 @@ Force nginx to start automatically:
 ```sudo /sbin/chkconfig nginx on```
 
 Start Nginx:
-```sudo service nginx start```
+``` sudo service nginx start ```
 
 
 Kibana
 ------
 Download and install Kibana
-```wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz```
-```tar zxf kibana-3.1.0.tar.gz```
-```sudo mv kibana-3.1.0 /usr/share/nginx/html/kibana```
-```rm -f kibana-3.1.0.tar.gz```
+``` wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz ```
+``` tar zxf kibana-3.1.0.tar.gz ```
+``` sudo mv kibana-3.1.0 /usr/share/nginx/html/kibana ```
+``` rm -f kibana-3.1.0.tar.gz ```
 
 
 Grab the Elasticsearch example config from the ELK Demo repo, change IP addresses to match your host config
 Copy your personalized configuration to:
-```/etc/elasticsearch/elasticsearch.yml```
+``` /etc/elasticsearch/elasticsearch.yml ```
 
 
 Start Elasticsearch
-```sudo service elasticsearch start```
+``` sudo service elasticsearch start ```
 
 
 Grab the Logstash example config from the ELK Demo repo
 Copy your personalized configuration to: 
-```/etc/logstash/conf.d/logstash.conf```
+``` /etc/logstash/conf.d/logstash.conf ```
 
 
-Update the builtin grok patterns grab the firewall grok patterns from the ELK Demo repo copy your personalized configuration to: ```/usr/share/grok/patterns/cisco-firewalls```
+Update the builtin grok patterns grab the firewall grok patterns from the ELK Demo repo copy your personalized configuration to: ``` /usr/share/grok/patterns/cisco-firewalls ```
 
 
 Start Elasticsearch
-```sudo service logstash start```
+``` sudo service logstash start ```
 
 
 Configure your firewall(s) to send syslog data to your new ES host
 Be sure to match destination ports and protocols with those set within the Logstash config
 
-```Now browse to http://<ES_HOST_IP>:9200/kibana```
+``` Now browse to http://<ES_HOST_IP>:9200/kibana ```
