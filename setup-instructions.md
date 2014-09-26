@@ -72,12 +72,14 @@ enabled=1
 
 
 # Add the following and save the file:
-```[logstash-1.4]
+```
+[logstash-1.4]
 name=logstash repository for 1.4.x packages
 baseurl=http://packages.elasticsearch.org/logstash/1.4/centos
 gpgcheck=1
 gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
-enabled=1```
+enabled=1
+```
 
 
 # Install Logstash
@@ -108,10 +110,10 @@ enabled=1```
 
 
 # Download and install Kibana
-```wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz
-tar zxf kibana-3.1.0.tar.gz
-sudo mv kibana-3.1.0 /usr/share/nginx/html/kibana
-rm -f kibana-3.1.0.tar.gz```
+```wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz```
+```tar zxf kibana-3.1.0.tar.gz```
+```sudo mv kibana-3.1.0 /usr/share/nginx/html/kibana```
+```rm -f kibana-3.1.0.tar.gz```
 
 
 # Grab the Elasticsearch example config from the ELK Demo repo, change IP addresses to match your host config
