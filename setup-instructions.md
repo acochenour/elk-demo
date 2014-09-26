@@ -21,13 +21,14 @@ Activate the sysctl IPV6 changes:
 Configure IPTables
 ------------------
 
-Allow access to Kibana GUI
-``` iptables -A INPUT -p tcp --dport 80 -j ACCEPT ```
+Allow access to Kibana GUI:
 Optional if you choose to access Kibana via SSL
-``` iptables -A INPUT -p tcp --dport 443 -j ACCEPT ```
 Allow client-side access to Elasticsearch
-``` iptables -A INPUT -p tcp --dport 9200 -j ACCEPT ```
 Allow client-side access to Elasticsearch API
+
+``` iptables -A INPUT -p tcp --dport 80 -j ACCEPT ```
+``` iptables -A INPUT -p tcp --dport 443 -j ACCEPT ```
+``` iptables -A INPUT -p tcp --dport 9200 -j ACCEPT ```
 ``` iptables -A INPUT -p tcp --dport 9300 -j ACCEPT ```
 
 
